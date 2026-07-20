@@ -44,3 +44,9 @@ TagManager:
   - name: dirt layer
     uniqueID: 3162655259
     locked: 0
+  - name: monster layer
+    uniqueID: 444559359
+    locked: 0
+  - name: chest layer
+    uniqueID: 3852606481
+    locked: 0
