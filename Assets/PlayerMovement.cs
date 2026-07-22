@@ -41,16 +41,20 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(GroundCheck.position, 0.2f, groundLayer);
     }
 
+    void Awake()
+    {
+        // Prevents ground check from detecting colliders starting inside the check radius
+        Physics2D.queriesStartInColliders = false;
+    }
+
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            
 
-
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 }

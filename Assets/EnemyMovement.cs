@@ -28,9 +28,9 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        rigidbody.velocity = movement;
         movement.x = speed * currentDirection;
         movement.y = rigidbody.velocity.y;
+        rigidbody.velocity = movement;
         SetDirection();
     }
 
