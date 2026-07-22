@@ -1769,6 +1769,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2066510020}
     m_Modifications:
+    - target: {fileID: 755345021963596071, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439305949543670383, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751348926787847700, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2868146655731777058, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
       propertyPath: m_Name
       value: Soldier_Character_7
@@ -1777,12 +1789,24 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5313288736597744214, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5515673535606486993, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5515673535606486993, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515673535606486993, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
       propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235645502974266531, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8978051941173155995, guid: 81686d34e13e5144fbd152c4821228df, type: 3}
