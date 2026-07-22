@@ -24,10 +24,4 @@ public class EnemyScript : MonoBehaviour
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
