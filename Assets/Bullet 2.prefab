@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -354471679296659501}
   m_Layer: 0
   m_Name: Bullet 2
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5
 --- !u!114 &-354471679296659501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,4 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  damage: 1
   rb: {fileID: 4143030474743717421}

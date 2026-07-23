@@ -16,6 +16,9 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
+        // Print the name of whatever object the bullet just touched!
+        Debug.Log("Bullet hit: " + hitInfo.gameObject.name);
+
         if (hitInfo.CompareTag("Player"))
         {
             return;
