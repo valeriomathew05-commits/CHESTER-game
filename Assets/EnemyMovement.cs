@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
         halfWidth = spriteRenderer.bounds.extents.x;
         halfHeight = spriteRenderer.bounds.extents.y;
         currentDirection = startDirection;
-        spriteRenderer.flipX = startDirection == 1 ? false : true;
+        //spriteRenderer.flipX = startDirection == 1 ? false : true;
     }
 
     // Update is called once per frame
@@ -63,42 +63,38 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!isGrounded) return;
 
-        Vector2 rightPos = transform.position;
-        Vector2 leftPos = transform.position;
-        rightPos.x += halfWidth;
-        leftPos.y -= halfHeight;
+        Vector2 rightPos = new Vector2 (transform.position.x + halfWidth, transform.position.y - halfHeight);
+        Vector2 leftPos = new Vector2(transform.position.x - halfWidth, transform.position.y - halfHeight);
+
+        int groundLayer = LayerMask.GetMask("Ground");
 
         if (rigidbody.velocity.x > 0)
         {
-            if (Physics2D.Raycast(transform.position, Vector2.right, halfWidth + 0.1f, LayerMask.GetMask("Ground")))
+            bool hitWallAhead = Physics2D.Raycast(transform.position, Vector2.right, halfWidth + 0.1f, groundLayer);
+            bool hasGroundAhead = Physics2D.Raycast(rightPos, Vector2.down, 0.2f, groundLayer);
+
+            if (hitWallAhead || (stayOnLedges && !hasGroundAhead))
         {
                 currentDirection *= -1;
                 spriteRenderer.flipX = true;
             }
 
-            else if (stayOnLedges && !Physics2D.Raycast(rightPos, Vector2.down, halfHeight + 0.1f, LayerMask.GetMask("Ground")))
-            {
-                currentDirection *= -1;
-                spriteRenderer.flipX = true;
-            }
         }
 
         else if (rigidbody.velocity.x < 0)
         {
-            if (Physics2D.Raycast(transform.position, Vector2.left, halfWidth + 0.1f, LayerMask.GetMask("Ground")))
-        {
-                currentDirection *= -1;
-                spriteRenderer.flipX = false;
-            }
+            bool hitWallAhead = Physics2D.Raycast(transform.position, Vector2.left, halfWidth + 0.1f, groundLayer);
+            bool hasGroundAhead = Physics2D.Raycast(leftPos, Vector2.down, 0.2f, groundLayer);
 
-            else if (stayOnLedges && !Physics2D.Raycast(leftPos, Vector2.down, halfHeight + 0.1f, LayerMask.GetMask("Ground")))
+            if (hitWallAhead || (stayOnLedges && !hasGroundAhead))
             {
                 currentDirection *= -1;
                 spriteRenderer.flipX = false;
             }
+
         }
 
-        Debug.DrawRay(transform.position, Vector2.right * (halfWidth + 0.1f), Color.red);
-        Debug.DrawRay(transform.position, Vector2.left * (halfWidth + 0.1f), Color.red);
+        Debug.DrawRay(rightPos, Vector2.down * 0.2f, Color.red);
+        Debug.DrawRay(leftPos, Vector2.down * 0.2f, Color.red);
     }
 }
