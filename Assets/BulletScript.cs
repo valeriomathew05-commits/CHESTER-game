@@ -14,8 +14,13 @@ public class BulletScript : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    void onTriggerEnter2D (Collider2D hitInfo)
+    void OnTriggerEnter2D (Collider2D hitInfo)
     {
+        if (hitInfo.CompareTag("Player"))
+        {
+            return;
+        }
+
         EnemyScript enemy = hitInfo.GetComponent<EnemyScript>();
         if(enemy != null)
         {
